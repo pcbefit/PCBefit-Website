@@ -1,16 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Fragment, useEffect} from 'react';
+
+import Home from './components/Home';
+
+const initAOS = () => {
+	const AOS = window.AOS;
+	AOS.init({
+		duration: 1200,
+	});
+};
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-          PCDiff
-      </header>
-    </div>
-  );
+
+	useEffect(() => {
+		initAOS();
+	}, []);
+
+	return (
+		<Fragment>
+			<Home/>
+		</Fragment>
+	);
 }
 
 export default App;
