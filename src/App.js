@@ -1,6 +1,8 @@
-import React, {Fragment, useEffect} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 
 import Home from './components/Home';
+import Nav from "./components/Nav/Nav";
+import {PCDiff} from "./components/PCDiff/PCDiff";
 
 const initAOS = () => {
 	const AOS = window.AOS;
@@ -11,13 +13,23 @@ const initAOS = () => {
 
 function App() {
 
+	const [isShow, setShow] = useState(false);
+
 	useEffect(() => {
 		initAOS();
+
+
+		setTimeout(()=>{
+			setShow(true);
+		}, 3000);
 	}, []);
 
 	return (
 		<Fragment>
-			<Home/>
+			<Nav>
+				{!isShow &&<Home/>}
+				{isShow && <PCDiff/>}
+			</Nav>
 		</Fragment>
 	);
 }
