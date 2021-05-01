@@ -34,9 +34,9 @@ const NavContainer = (props) => {
 							<Button as='a' inverted>
 								Load
 							</Button>
-							{/*<Button as='a' inverted primary style={{marginLeft: '0.5em'}}>*/}
-							{/*Save*/}
-							{/*</Button>*/}
+							<Button as='a' inverted primary style={{marginLeft: '0.5em'}}>
+								Chart(0)
+							</Button>
 						</Menu.Item>
 					</Container>
 				</Menu>

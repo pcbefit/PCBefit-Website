@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import {
 	Segment,
+	Container
 } from 'semantic-ui-react';
 
 export const PCDiff = () => {
@@ -9,7 +10,10 @@ export const PCDiff = () => {
 		         textAlign='center'
 		         style={{minHeight: 700, padding: '1em 0em'}}
 		         vertical>
-			PCDiff container
+
+			<Container style={{margin: 50}}>
+				<div data-aos="fade-right">PCDiff container</div>
+			</Container>
 		</Segment>
 	</Fragment>;
 };

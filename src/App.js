@@ -17,11 +17,8 @@ function App() {
 
 	useEffect(() => {
 		initAOS();
+		setShow(true);
 
-
-		setTimeout(()=>{
-			setShow(true);
-		}, 3000);
 	}, []);
 
 	return (
