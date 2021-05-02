@@ -1,12 +1,16 @@
 import React, {Fragment} from 'react';
+import {useDispatch} from 'react-redux';
 import {
 	Button, Container,
 	Grid,
 	Header, Icon,
 	Segment,
 } from 'semantic-ui-react';
+import { show } from '../../reducers/diffSlice';
 
-const HomepageHeading = ({mobile}) => (
+const HomepageHeading = ({mobile}) =>{
+	const dispatch = useDispatch();
+	return (
 	<Container text>
 		<Header
 			as='h1'
@@ -29,12 +33,14 @@ const HomepageHeading = ({mobile}) => (
 				marginTop: mobile ? '0.5em' : '1.5em',
 			}}
 		/>
-		<Button primary size='huge'>
+		<Button primary size='huge' onClick={()=>{
+			dispatch(show());
+		}}>
 			Get Started
 			<Icon name='right arrow'/>
 		</Button>
 	</Container>
-)
+)};
 
 const Home = () => (
 	<Fragment>

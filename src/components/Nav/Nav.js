@@ -1,10 +1,12 @@
 import {createMedia} from '@artsy/fresnel';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import {
 	Button,
 	Container,
 	Menu,
 } from 'semantic-ui-react';
+import { showChart } from '../../reducers/chartSlice';
 
 const {MediaContextProvider} = createMedia({
 	breakpoints: {
@@ -15,6 +17,7 @@ const {MediaContextProvider} = createMedia({
 })
 
 const NavContainer = (props) => {
+	const dispatch = useDispatch();
 	const {children} = props;
 	return (
 		<>
@@ -27,14 +30,16 @@ const NavContainer = (props) => {
 					style={{background: 'black'}}
 				>
 					<Container>
-						<Menu.Item as='a' active>
+						<Menu.Item as='a' active style={{cursor:'default'}}>
 							Home
 						</Menu.Item>
 						<Menu.Item position='right'>
 							<Button as='a' inverted>
 								Load
 							</Button>
-							<Button as='a' inverted primary style={{marginLeft: '0.5em'}}>
+							<Button as='a' inverted primary style={{marginLeft: '0.5em'}} onClick={()=>{
+								dispatch(showChart());
+							}}>
 								Chart(0)
 							</Button>
 						</Menu.Item>
