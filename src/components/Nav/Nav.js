@@ -1,4 +1,3 @@
-import {createMedia} from '@artsy/fresnel';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import {
@@ -7,14 +6,15 @@ import {
 	Menu,
 } from 'semantic-ui-react';
 import { showChart } from '../../reducers/chartSlice';
+import { createMedia } from '@artsy/fresnel';
 
-const {MediaContextProvider} = createMedia({
+const {MediaContextProvider, Media} = createMedia({
 	breakpoints: {
 		mobile: 0,
 		tablet: 768,
 		computer: 1024,
 	},
-})
+});
 
 const NavContainer = (props) => {
 	const dispatch = useDispatch();
@@ -37,11 +37,13 @@ const NavContainer = (props) => {
 							<Button as='a' inverted>
 								Load
 							</Button>
+							<Media at={'mobile'}>
 							<Button as='a' inverted primary style={{marginLeft: '0.5em'}} onClick={()=>{
 								dispatch(showChart());
 							}}>
 								Chart(0)
 							</Button>
+							</Media>
 						</Menu.Item>
 					</Container>
 				</Menu>

@@ -23,7 +23,7 @@ function App() {
 	return (
 		<Fragment>
 			<Nav>
-				{!diff.isShow && !chart.isShow &&<Home/>}
+				{!diff.isShow && !chart.isShow && <Home/>}
 				{(diff.isShow || chart.isShow) && <PCDiff/>}
 			</Nav>
 		</Fragment>
